@@ -1,0 +1,23 @@
+<?php
+$_['heading_title']	=	'Language Editor ';
+$_['heading_version']	=	'v1.0';
+$_['text_localisation']	=	'Localisations';
+$_['text_success']	=	'Success: You have modified Language!';
+$_['entry_frontend']	=	'Frontend';
+$_['entry_backend']	=	'Backend';
+$_['entry_languages']	=	'Languages';
+$_['entry_code']	=	'Code';
+$_['entry_directory']	=	'Directory';
+$_['entry_locale']	=	'Locale';
+$_['entry_permissions']	=	'Permissions:';
+$_['entry_showhide']	=	'Show / Hide';
+$_['entry_showhideall']	=	'Show / Hide All';
+$_['entry_saving']	=	'Saving...';
+$_['entry_saved']	=	'Saved';
+$_['entry_search']	=	'Type and hit Enter';
+$_['error_permission']	=	'Warning: You do not have permission to modify language!';
+$_['error_dimension']	=	'Width &amp; Height dimensions required!';
+$_['error_no_selections']	=	'Please select one or more language!';
+$_['error_writable']	=	'Writable';
+$_['error_unwritable']	=	'Unwritable';
+$_['text_edit']	=	'Edit';

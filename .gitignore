@@ -1,0 +1,65 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+
+# OpenCart specific cache, logs and temp files
+/image/cache/*
+!/image/cache/index.html
+/system/storage/cache/*
+!/system/storage/cache/index.html
+/system/storage/logs/*
+!/system/storage/logs/index.html
+/system/storage/download/*
+!/system/storage/download/index.html
+/system/storage/upload/*
+!/system/storage/upload/index.html
+/system/storage/modification/*
+!/system/storage/modification/index.html
+
+# Cache/logs for older OpenCart 2.0 versions
+/system/cache/*
+!/system/cache/index.html
+/system/logs/*
+!/system/logs/index.html
+
+# Configuration files
+# Lưu ý: Các file config thường bị ignore để không đè cấu hình giữa các môi trường. 
+# Nếu bạn muốn ignore chúng, hãy bỏ comment 3 dòng dưới đây:
+# /config.php
+# /admin/config.php
+# /quantri/config.php
+
+# VQMod (nếu có sử dụng)
+/vqmod/vqcache/*
+/vqmod/logs/*
+!/vqmod/vqcache/index.html
+!/vqmod/logs/index.html
+/vqmod/mods.cache
+/vqmod/checked.cache
+
+# Third party directories
+/vendor/
+/node_modules/
+
+# Database dumps
+*.sql
+*.sql.gz
+*.sql.zip
+
+# Error logs
+error_log
+php_errors.log
+*.log
+
+# Temp files
+/tmp/

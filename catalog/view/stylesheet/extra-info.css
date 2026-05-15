@@ -1,0 +1,37 @@
+.extra-info-frame {
+	padding: 0px 15px;
+}
+
+.box-content {
+	padding: 60px 15px;
+}
+
+.box-half-content {
+	padding: 60px 15px;
+	max-width: 570px;
+}
+
+@media screen and (max-width: 1200px) {
+	.box-content {
+		padding: 40px 15px;
+	}
+	.box-half-content {
+		padding: 40px 15px;
+		max-width: 570px;
+	}
+}
+
+@media screen and (max-width: 990px) {
+	.box-half-content {
+		padding: 30px 15px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.box-content {
+		padding: 30px 15px;
+	}
+	.box-half-content {
+		max-width: 100%;
+	}
+}

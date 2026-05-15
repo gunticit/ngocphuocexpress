@@ -1,0 +1,135 @@
+/* Thread page */
+
+.thread {
+
+	
+
+}
+
+.thread-title {
+
+	background-image: url('../../../image/catalog/banner/header-parallax.jpg');
+
+}
+
+.thread-title h1 {
+
+	background: rgba(0,0,0,0.2);
+
+	padding: 90px 0px;
+
+	color: #fff;
+
+	text-align: center;
+
+	text-transform: uppercase;
+
+	font-weight: bold;
+
+
+
+}
+
+.news-layout.news-standard .image img {
+
+	width: 100%;
+
+}
+
+
+
+.news-layout.news-standard .caption h2 {
+    font-size: 16px;
+    text-align: center;
+}
+
+.news-layout.news-standard .caption h2 a{
+	color:  #111;
+}
+
+.news-layout.news-standard .caption h4 {
+
+	font-size: 14px;
+
+	line-height: 1.4;
+
+}
+
+.news-layout.news-standard .view-more {
+
+	text-align: right;
+
+	font-weight: bold;
+
+	font-style: italic;
+
+}
+
+.news-layout.news-blog h2{
+
+	font-size: 18px;
+
+}
+
+
+
+.news-layout.news-blog .image img {
+
+	width: 100%;
+
+}
+
+
+
+.news-layout.news-blog .view-more {
+
+	text-align: right;
+
+	font-weight: bold;
+
+	font-style: italic;
+
+}
+
+
+
+.news-layout.news-gallery .caption h2 {
+
+	font-size: 18px;
+
+	text-align: center;
+
+}
+
+
+.news-container .news-banner img {
+
+	width: 100%; 
+
+}
+
+.news-container .news-title h1 {
+
+	font-size: 28px;
+
+	font-weight: bold;
+
+}
+
+.news-container .news-description {
+
+	margin-top: 40px;
+
+}
+
+
+
+.parallax-bg {
+
+	background-attachment: fixed;
+
+    background-size: cover;
+
+    background-repeat: repeat-y;
+
+}
