@@ -291,15 +291,16 @@ header {
   font-family: var(--np-font) !important;
 }
 
-/* --- Consistent Section Spacing (8px grid) --- */
+/* --- Consistent Section Spacing --- */
 section,
 .module-plgselectthread,
-.news-latest-module,
 .visaochon,
 .carousel-trinhdien,
 .pro-lastest,
-.module-tslc {
+.module-tslc,
+#content {
   padding: 80px 0 !important;
+  margin: 0 !important;
 }
 
 .container {
@@ -308,6 +309,7 @@ section,
   max-width: 1200px !important;
 }
 
+/* --- Section Titles with gold underline accent --- */
 .box-title h3,
 h3.index-title,
 .pro-lastest h3,
@@ -321,24 +323,54 @@ h3.index-title,
   letter-spacing: 1.5px !important;
   position: relative !important;
   margin-bottom: 48px !important;
+  padding-bottom: 16px !important;
   background: transparent !important;
+  text-align: center !important;
+  display: block !important;
 }
 
-/* Remove legacy title lines that strike through text */
+/* Gold accent underline under titles */
+.box-title h3::after,
+h3.index-title::after,
+.pro-lastest h3::after,
+.news-latest-module .box-title h3::after,
+.carousel-trinhdien .box-title h3::after {
+  content: '' !important;
+  display: block !important;
+  width: 65px !important;
+  height: 10px !important;
+  margin: 12px auto 0 !important;
+  border-radius: 2px !important;
+  position: static !important;
+  opacity: 1 !important;
+  background-image: url(http://localhost:8000/image/line-pattern-copy.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Remove ALL legacy title pseudo-elements */
 .box-title {
   border: none !important;
   background: transparent !important;
+  text-align: center !important;
 }
 
 .box-title::before,
-.box-title::after,
 .box-title h3::before,
-.box-title h3::after,
-h3.index-title::before,
-h3.index-title::after {
+h3.index-title::before {
   content: none !important;
   display: none !important;
+  width: 0 !important;
+  height: 0 !important;
   background: none !important;
+}
+
+.box-title::after {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 /* --- Service Cards (CUNG CẤP DỊCH VỤ) --- */
@@ -348,7 +380,6 @@ h3.index-title::after {
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 60% !important;
-  padding: 60px 0 !important;
   border-top: none !important;
 }
 
@@ -358,36 +389,71 @@ h3.index-title::after {
   margin-bottom: 48px !important;
 }
 
-/* --- Products full width --- */
+/* --- Products grid with CSS Grid --- */
 .module-plgselectthread .col-sm-8,
 .module-plgselectthread .col-md-8 {
   width: 100% !important;
   float: none !important;
-  padding: 0 15px !important;
+  padding: 0 !important;
 }
 
-.module-plgselectthread .newsthread .row {
-  display: flex !important;
-  flex-wrap: wrap !important;
+.module-plgselectthread .newsthread .row:first-child {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 24px !important;
+  float: none !important;
+}
+
+/* Kill Bootstrap .row::before/::after ghost cells inside CSS Grid */
+.module-plgselectthread .newsthread .row:first-child::before,
+.module-plgselectthread .newsthread .row:first-child::after {
+  content: none !important;
+  display: none !important;
 }
 
 .module-plgselectthread .newsthread .col-sm-4,
+.module-plgselectthread .newsthread .col-sm-4.col-xs-6,
 .module-plgselectthread .newsthread .col-sm-4.col-xs-12 {
-  width: 33.333% !important;
-  padding: 0 12px !important;
-  margin-bottom: 32px !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
   float: none !important;
+}
+
+/* Card styling for .border-box-new */
+.module-plgselectthread .border-box-new {
+  background: var(--np-surface) !important;
+  border-radius: var(--np-radius) !important;
+  overflow: hidden !important;
+  box-shadow: var(--np-shadow) !important;
+  border: 1px solid var(--np-border) !important;
+  transition: var(--np-transition);
+  height: 100% !important;
+}
+
+.module-plgselectthread .border-box-new:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--np-shadow-lg) !important;
+}
+
+.module-plgselectthread .caption {
+  padding: 15px !important;
+}
+
+/* All post cards on homepage — 15px padding */
+.border-box-new .caption {
+  padding: 15px !important;
 }
 
 .module-plgselectthread .caption h2,
 .module-plgselectthread .caption h2 a {
   font-family: var(--np-font-heading) !important;
-  font-size: 16px !important;
+  font-size: 15px !important;
   font-weight: 600 !important;
   color: var(--np-text) !important;
   transition: var(--np-transition);
-  line-height: 1.6 !important;
-  margin-top: 16px !important;
+  line-height: 1.5 !important;
+  margin-top: 0 !important;
   display: block !important;
 }
 
@@ -395,35 +461,41 @@ h3.index-title::after {
   color: var(--np-gold-hover) !important;
 }
 
+.module-plgselectthread .border-box-new .image {
+  overflow: hidden !important;
+}
+
 .module-plgselectthread img {
-  border-radius: var(--np-radius) !important;
+  border-radius: 0 !important;
   transition: var(--np-transition);
   object-fit: cover !important;
   width: 100% !important;
   height: 200px !important;
+  display: block !important;
 }
 
 .module-plgselectthread img:hover {
-  transform: scale(1.03);
-  box-shadow: var(--np-shadow);
+  transform: scale(1.05);
 }
 
 /* --- Form as separate white section --- */
-.module-plgselectthread>.container>.row>.col-sm-4,
-.module-plgselectthread>.container>.row>.col-md-4,
-.module-plgselectthread .col-sm-4:last-child {
+.module-plgselectthread .newsthread .row:last-child {
+  display: block !important;
+  grid-template-columns: none !important;
+  margin-top: 48px !important;
+}
+
+.module-plgselectthread .newsthread .row:last-child>.col-xs-12 {
   width: 100% !important;
   float: none !important;
-  clear: both !important;
   padding: 0 !important;
-  margin-top: 40px !important;
 }
 
 .module-plgselectthread .panel {
-  background-color: var(--np-surface) !important;
-  border: 1px solid var(--np-border) !important;
-  border-radius: var(--np-radius) !important;
-  box-shadow: var(--np-shadow) !important;
+  /* background-color: var(--np-surface) !important; */
+  /* border: 1px solid var(--np-border) !important; */
+  /* border-radius: var(--np-radius) !important; */
+  /* box-shadow: var(--np-shadow) !important; */
   padding: 0 !important;
   overflow: hidden;
 }
@@ -451,15 +523,31 @@ h3.index-title::after {
 .module-plgselectthread .form-wrapper .form-ul li input[type="password"],
 .module-plgselectthread .form-wrapper .form-ul li textarea {
   border: none !important;
-  border-bottom: 2px solid var(--np-border) !important;
+  border-bottom: 1px solid var(--np-border) !important;
   color: var(--np-text) !important;
   font-family: var(--np-font) !important;
   font-size: 15px !important;
-  background: transparent !important;
-  padding: 16px 0 !important;
+  padding: 16px 10px !important;
   margin-bottom: 12px !important;
   transition: var(--np-transition);
   box-shadow: none !important;
+  border-radius: 5px;
+  background: #fbfbfb !important;
+}
+
+body .form-campuchia .form-wrapper .form-ul li input.large[type="text"],
+body .form-wrapper .form-ul li textarea.large {
+  border: none !important;
+  border-bottom: 1px solid var(--np-border) !important;
+  color: var(--np-text) !important;
+  font-family: var(--np-font) !important;
+  font-size: 15px !important;
+  padding: 16px 10px !important;
+  margin-bottom: 12px !important;
+  transition: var(--np-transition);
+  box-shadow: none !important;
+  border-radius: 5px;
+  background: #fbfbfb !important;
 }
 
 .module-plgselectthread .form-wrapper .form-ul li input[type="text"]:focus,
@@ -500,12 +588,6 @@ h3.index-title::after {
 /* --- News Section --- */
 .news-latest-module {
   background: var(--np-surface) !important;
-  padding: 60px 0 !important;
-}
-
-.news-latest-module .container {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
 }
 
 .news-latest-module .border-box-new {
@@ -525,6 +607,9 @@ h3.index-title::after {
 .news-latest-module .border-box-new img {
   border-radius: var(--np-radius) var(--np-radius) 0 0 !important;
   transition: var(--np-transition);
+  height: 200px !important;
+  width: 100% !important;
+  object-fit: cover !important;
 }
 
 .news-latest-module .news_carousel .border-box-new h2 a {
@@ -555,7 +640,6 @@ h3.index-title::after {
 
 /* --- Vì Sao Chọn Chúng Tôi --- */
 .visaochon {
-  padding: 70px 0 !important;
   background: var(--np-bg) !important;
 }
 
@@ -570,11 +654,17 @@ h3.index-title::after {
 }
 
 .visaochon .box-title h3:before {
-  background: var(--np-gold) !important;
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
-.visaochon .box-title h3:after {
-  background: linear-gradient(to right, var(--np-navy), var(--np-navy-light)) !important;
+.visaochon .content {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 24px !important;
+  align-items: stretch !important;
 }
 
 .visaochon .content .item {
@@ -586,6 +676,8 @@ h3.index-title::after {
   font-size: 14px !important;
   transition: var(--np-transition);
   border: 1px solid rgba(200, 169, 97, 0.15);
+  flex: 1 1 calc(25% - 18px) !important;
+  min-width: 220px !important;
 }
 
 .visaochon .content .item:hover {
@@ -625,7 +717,6 @@ h3.index-title::after {
 
 /* --- Partner Logos --- */
 .carousel-trinhdien {
-  padding: 50px 0 !important;
   background-color: var(--np-surface) !important;
 }
 
@@ -640,8 +731,20 @@ h3.index-title::after {
 /* --- Footer --- */
 footer.site-footer {
   background: linear-gradient(180deg, var(--np-navy-dark), #0A1425) !important;
-  padding: 60px 0 40px !important;
+  padding: 80px 0 !important;
+  margin: 0 !important;
   border-top: 4px solid var(--np-gold) !important;
+}
+
+footer.site-footer hr {
+  border: none !important;
+  height: 1px !important;
+  background: rgba(200, 169, 97, 0.2) !important;
+  margin: 16px 0 !important;
+}
+
+footer.site-footer>.container>div {
+  padding-bottom: 0 !important;
 }
 
 footer h2 {
@@ -726,73 +829,278 @@ footer a:hover {
   border-color: var(--np-gold) !important;
 }
 
-/* --- Floating Buttons --- */
+/* --- Floating Action Buttons System --- */
+/* Consistent 56px circle icons, stacked right side with 12px gap */
+
+/* Phone call buttons */
 .call-mobile {
   background: var(--np-navy) !important;
-  border-radius: 30px !important;
-  box-shadow: 0 4px 15px rgba(27, 42, 74, 0.3) !important;
+  border-radius: 28px !important;
+  box-shadow: 0 4px 16px rgba(27, 42, 74, 0.25) !important;
   transition: var(--np-transition);
+  padding: 0 16px 0 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+  height: 44px !important;
+  z-index: 90000040 !important;
 }
 
 .call-mobile:hover {
-  box-shadow: 0 6px 20px rgba(27, 42, 74, 0.45) !important;
+  transform: translateX(-4px);
+  box-shadow: 0 6px 20px rgba(27, 42, 74, 0.4) !important;
 }
 
 .call-mobile i {
   background: var(--np-gold) !important;
   color: var(--np-navy) !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 18px !important;
 }
 
 .call-mobile a {
   font-family: var(--np-font) !important;
-  font-size: 18px !important;
+  font-size: 14px !important;
   font-weight: 700 !important;
+  color: #fff !important;
+  white-space: nowrap !important;
+  padding-left: 10px !important;
+  letter-spacing: 0.5px !important;
 }
 
-/* Floating CTA Button */
+.call-mobile2.call-mobile {
+  bottom: 56px !important;
+}
+
+/* Floating CTA Button — icon circle, expands on hover */
 button[data-target="#myModal"] {
   background: linear-gradient(135deg, var(--np-gold), var(--np-gold-hover)) !important;
   color: var(--np-navy) !important;
   border: none !important;
-  border-radius: 30px !important;
-  padding: 12px 28px !important;
+  border-radius: 24px !important;
+  width: 48px !important;
+  height: 48px !important;
+  padding: 0 !important;
+  font-size: 0 !important;
+  line-height: 48px !important;
   font-family: var(--np-font-heading) !important;
-  font-size: 14px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.5px !important;
-  box-shadow: 0 4px 20px rgba(200, 169, 97, 0.4) !important;
-  transition: var(--np-transition);
+  box-shadow: 0 4px 16px rgba(200, 169, 97, 0.35) !important;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  bottom: 118px !important;
+  right: 16px !important;
+  z-index: 90000040 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+}
+
+button[data-target="#myModal"]::before {
+  content: '\f0ea' !important;
+  font-family: 'FontAwesome' !important;
+  font-size: 20px !important;
+  display: inline-block !important;
+  width: 48px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  flex-shrink: 0 !important;
 }
 
 button[data-target="#myModal"]:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(200, 169, 97, 0.5) !important;
+  width: auto !important;
+  padding: 0 20px 0 0 !important;
+  font-size: 12px !important;
+  transform: translateX(-4px);
+  box-shadow: 0 6px 20px rgba(200, 169, 97, 0.5) !important;
 }
 
-/* --- Zalo/WhatsApp floating icons --- */
+/* Zalo/WhatsApp floating icons — shrink to 48px like hotline */
 #IMAGE447,
 #IMAGE448,
 #IMAGE449 {
+  width: 48px !important;
+  height: 48px !important;
+  right: 16px !important;
   transition: var(--np-transition);
+}
+
+#IMAGE448 {
+  bottom: 10px !important;
+}
+
+#IMAGE449 {
+  bottom: 64px !important;
+}
+
+#IMAGE447 {
+  bottom: 172px !important;
+}
+
+#IMAGE448>.ladi-image>.ladi-image-background,
+#IMAGE449>.ladi-image>.ladi-image-background,
+#IMAGE447>.ladi-image>.ladi-image-background {
+  width: 48px !important;
+  height: 48px !important;
+  background-size: 40px !important;
+  background-position: center !important;
+  top: 0 !important;
+  left: 0 !important;
 }
 
 #IMAGE447:hover,
 #IMAGE448:hover,
 #IMAGE449:hover {
   transform: scale(1.1);
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.15));
 }
 
 /* --- Form Modal Campuchia --- */
-.form-campuchia .form-wrapper {
-  background: linear-gradient(180deg, var(--np-navy), var(--np-navy-dark)) !important;
-  border-top: 4px solid var(--np-gold) !important;
-  border-radius: 0 0 var(--np-radius-sm) var(--np-radius-sm) !important;
+.form-campuchia {
+  padding: 0 !important;
+  background: transparent !important;
 }
 
+/* .form-campuchia .modal-dialog,
+.form-campuchia.modal {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100vh !important;
+} */
+
+.form-campuchia .form-wrapper {
+  background: var(--np-surface) !important;
+  border-radius: var(--np-radius) !important;
+  padding: 0 !important;
+  max-width: 540px !important;
+  margin: 0 auto !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Form header with navy gradient */
 .form-campuchia h1 {
   font-family: var(--np-font-heading) !important;
-  color: var(--np-gold-light) !important;
+  color: #fff !important;
+  font-size: 18px !important;
+  text-align: center !important;
+  margin: 0 !important;
+  padding: 20px 32px !important;
+  background: linear-gradient(135deg, var(--np-navy), var(--np-navy-light)) !important;
+  text-shadow: none !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Form body */
+.form-campuchia .form-ul {
+  padding: 24px 32px 28px !important;
+  margin: 0 !important;
+  list-style: none !important;
+}
+
+.form-campuchia .form-ul li {
+  margin-bottom: 12px !important;
+  padding: 0 !important;
+}
+
+.form-campuchia .form-ul li input[type="text"],
+.form-campuchia .form-ul li input[type="password"],
+.form-campuchia .form-ul li textarea {
+  border: 1px solid var(--np-border) !important;
+  background: var(--np-bg) !important;
+  font-family: var(--np-font) !important;
+  font-size: 14px !important;
+  color: var(--np-text) !important;
+  padding: 10px 14px !important;
+  margin: 0 !important;
+  transition: var(--np-transition);
+  box-shadow: none !important;
+  width: 100% !important;
+  border-radius: var(--np-radius-sm) !important;
+}
+
+.form-campuchia .form-ul li textarea {
+  height: 80px !important;
+  resize: vertical !important;
+  min-height: 60px !important;
+}
+
+.form-campuchia .form-ul li input:focus,
+.form-campuchia .form-ul li textarea:focus {
+  border-color: var(--np-gold) !important;
+  outline: none !important;
+  background: #fff !important;
+  box-shadow: 0 0 0 3px rgba(200, 169, 97, 0.1) !important;
+}
+
+.form-campuchia .form-ul li input::placeholder,
+.form-campuchia .form-ul li textarea::placeholder {
+  color: var(--np-text-secondary) !important;
+  opacity: 0.5 !important;
+  font-size: 13px !important;
+}
+
+/* Submit button */
+.form-campuchia .form-wrapper .btn,
+.form-campuchia .form-wrapper button[type="submit"] {
+  background: linear-gradient(135deg, var(--np-gold), var(--np-gold-hover)) !important;
+  color: var(--np-navy) !important;
+  border: none !important;
+  border-radius: var(--np-radius-sm) !important;
+  padding: 12px !important;
+  font-family: var(--np-font-heading) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  width: 100% !important;
+  margin-top: 4px !important;
+  cursor: pointer !important;
+  transition: var(--np-transition);
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
+.form-campuchia .form-wrapper .btn:hover,
+.form-campuchia .form-wrapper button[type="submit"]:hover {
+  background: linear-gradient(135deg, var(--np-gold-hover), var(--np-gold)) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(200, 169, 97, 0.4) !important;
+}
+
+/* Modal close button */
+.form-campuchia>button {
+  position: absolute !important;
+  top: 8px !important;
+  right: 8px !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: none !important;
+  border-radius: 50% !important;
+  width: 28px !important;
+  height: 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 10 !important;
+  transition: var(--np-transition);
+  color: #fff !important;
+  font-size: 14px !important;
+}
+
+.form-campuchia>button:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.form-campuchia .modal-footer {
+  display: none !important;
 }
 
 /* --- Buttons --- */
@@ -935,7 +1243,25 @@ nav#menu-mobile {
   color: var(--np-navy);
 }
 
-/* --- Responsive --- */
+/* --- Responsive: Tablet (992px) --- */
+@media only screen and (max-width: 992px) {
+  .module-plgselectthread .newsthread .row:first-child {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .visaochon .content .item {
+    flex: 1 1 calc(50% - 12px) !important;
+    min-width: 280px !important;
+  }
+
+  .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* --- Responsive: Mobile (768px) --- */
 @media only screen and (max-width: 768px) {
 
   h1,
@@ -953,6 +1279,11 @@ nav#menu-mobile {
     font-size: 18px !important;
   }
 
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
   /* Fix section paddings on mobile */
   section,
   .module-plgselectthread,
@@ -961,7 +1292,7 @@ nav#menu-mobile {
   .carousel-trinhdien,
   .pro-lastest,
   .module-tslc {
-    padding: 40px 0 !important;
+    padding: 48px 0 !important;
   }
 
   /* Fix section title font size and spacing on mobile */
@@ -972,38 +1303,48 @@ nav#menu-mobile {
   .carousel-trinhdien .box-title h3,
   .module-plgselectthread .box-title h3 {
     font-size: 20px !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 28px !important;
     line-height: 1.4 !important;
   }
 
-  /* Fix products full width on mobile (1 column instead of squished 2) */
-  .module-plgselectthread .newsthread .col-sm-4.col-xs-6,
-  .module-plgselectthread .newsthread .col-sm-4 {
-    width: 100% !important;
-    float: none !important;
-    padding: 0 16px !important;
-    margin-bottom: 24px !important;
+  /* Products 1 column on mobile */
+  .module-plgselectthread .newsthread .row:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
   }
 
   /* Fix product images on mobile */
   .module-plgselectthread img {
-    height: auto !important;
-    max-height: 220px !important;
+    height: 180px !important;
   }
 
   /* Fix form wrapper width & padding on mobile */
   .module-plgselectthread .form-wrapper {
-    padding: 24px 20px !important;
+    padding: 28px 20px !important;
     margin-top: 16px !important;
   }
 
-  .visaochon .content .item {
-    padding: 40px 20px 24px !important;
-    margin-bottom: 40px !important;
+  /* Visaochon items stack on mobile */
+  .visaochon .content {
+    flex-direction: column !important;
+    gap: 48px !important;
   }
 
+  .visaochon .content .item {
+    flex: 1 1 100% !important;
+    min-width: 0 !important;
+    padding: 40px 20px 24px !important;
+  }
+
+  /* Footer mobile improvements */
   footer.site-footer {
-    padding: 40px 0 30px !important;
+    padding: 48px 0 30px !important;
+  }
+
+  footer.site-footer .col-sm-2,
+  footer.site-footer .col-sm-3,
+  footer.site-footer .col-sm-4 {
+    margin-bottom: 32px !important;
   }
 
   .nav-head-top .language {
@@ -1019,6 +1360,7 @@ nav#menu-mobile {
   }
 }
 
+/* --- Responsive: Small (480px) --- */
 @media only screen and (max-width: 480px) {
   body {
     font-size: 14px !important;
@@ -1032,5 +1374,17 @@ nav#menu-mobile {
   h2,
   .h2 {
     font-size: 20px !important;
+  }
+
+  .module-plgselectthread .box-title h3 {
+    font-size: 22px !important;
+  }
+
+  .module-plgselectthread img {
+    height: 160px !important;
+  }
+
+  .visaochon .content .item h4 {
+    font-size: 15px !important;
   }
 }

@@ -205,9 +205,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <i class="fa fa-phone"></i>
                 <div class="text-hotline">
                   <span>Hotline</span>
-                  <span style="    font-size: 16px;
-                    letter-spacing: 1px !important;
-                    color: #eb1e1b !important;">
+                  <span>
                 +84.979.82.9998
                   </span>
                 </div>
